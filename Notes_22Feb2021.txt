@@ -1,0 +1,851 @@
+Introduction to Java
+	Platform Independent
+	Object Oriented
+	Class based and Object Oriented
+	Architecture neutral
+	Server side language
+	MultiThreading 
+	Applets
+	OOPS:	Abstraction, Encapsulation, Inheritance, Polymorphism
+	Interface
+	try-catch-finally(optional)
+
+As you said, 
+	Java is an object oriented programming language.
+	is Platform Independent
+	Compiled and Interpreted			(We learnt javascript which was not compiled. Only interpreted). 	Means directly execute.
+	But Java programs are not executed directly. 
+	We need to translate java program into byte code (using Java compiler). The translation is done by java complier.
+	
+	What is meant by Platform Independence?
+		work on any OS, for which JVM is developed 
+		we can run the byte code in any computer that has JVM
+		can run on any JVM	
+		
+		Here, what we meant as platform is Hardware and Software together. 
+		An OS and the processor.
+
+	I have a Windows OS in a 64 bit processor	(this is my platform)
+	
+	when we download Java, we need to choose the platform. If i couldnt' find my platform, that means Java will not run in my platform.
+
+	Why we are using this term Platform Independence only when it comes to Java. (But not in C, C++)?
+
+	Yes. C, C++ were not platform indepdendent because, the language itself was different for different platform, different compiler and interpretor
+
+	what is the size of int datatype in C?
+		2	(in 32 bit machine)
+		4	(in 64 bit machine)
+
+	in some platform, C uses conio.h header which is not found in some platform
+		turboC
+		gcc
+		borland C
+		ansi c
+		codeblock
+		DevC++
+
+
+	The java program we write, is same for any platform in which it is going to run
+	The java language is same. 
+	The java language is platform independent. But the compiler, interpreter are specific to platform. 
+	
+	While downloading java, we choose the platform
+	and in development computer, the java platform is different. we write code.
+
+	and in production computer, the java platform is different. but we do not worry. The code we write is always same Java language.
+
+	How this is achieved?
+		Imagine, you are writing scripts (movie script) in Bengali. And then your team forms from many different states of India. How they can understand?
+		Convert the script into English. Then whoever wants to read the script can translate from English to Tamil or 
+	English to Kannada
+
+	Same:
+		We write code in Java. translate it to byte code (independent of any platform)
+
+		We run this byte code at different platform. (At runtime, again the byte code is translated into local machine code and then it executes)
+
+	So unlike, C or C++, where there are only 1 compilation process,
+	Java compiles the program twice.	
+		First in development computer, developer compiles Java -> Byte code
+		Then in production computer, whenever program is executed, Byte code	-> Machine code (specific to that platform where it is running)
+
+		That is done by Java Virtual Machine
+
+	a data in 16 bit representation
+	0000 1010 1100 0010 	1010 1100 0011 0001
+
+	&				(
+
+	but a 32 bit machine reads above as one data all 32 bits together		
+
+------------------------
+	what should we download?
+		Where is this JVM found?		
+	Developers need JDK	-	Java Development Kit		(also include JRE)
+	Users need 	JRE	-	Java Runtime Environment
+
+	JRE does not have compiler	(javac.exe)		Only Java.exe is there to run already compiled code
+
+	JDK contains both javac and java	
+
+	Which one should i download?	If we run already compiled java code, JRE is to be downloaded
+	But we are going to compile java source code, so we need to download JDK
+
+
+	Java Standard Edition		we learn
+	Java Enterprise Edition		we learn	(servlets & JSP)
+	Java Mobile Edition
+
+	download java 8		(do not download 14 or 15 version of java)
+			pls do not have multiple versions of java
+
+
+We need IDE	(Integrated Development Environment) for creating java projects
+	you may download either of the following:
+		Eclipse	(oxygen or later)	ABCE....	O for Oxygen	means Neon is old version
+		Spring Tool Suite		for eclipse
+		IntelliJ
+	My recommendation is STS	(spring tool suite)	this is eclipse plus spring plug ins
+
+
+	While installing jdk, better you allow installer to choose where to install. Not recommended to change the path
+	i) JDK 8 INSTALLED in the computer
+	ii) A java IDE (eclipse | STS | IntelliJ) 
+
+Now, all of us have installed JDK 8
+	Let us go to jdk bin folder now
+		C:\Program Files\Java\jdk1.8.0_191\bin
+
+in start menu, type cmd and press enter
+	it will open command prompt
+
+		type javac and enter
+	if you see 
+		"javac is not recognised as an internal or external command"
+
+	you have already copied jdk bin folder path
+	now the command you need to type in cmd prompt is:
+
+	C:\Program Files\Java\jdk1.8.0_191\bin
+
+Steps to set the java path in environment variables
+
+	
+start menu
+	type	"environment"		and choose 
+		"edit the system environment variable"
+
+	click "environment variables" button
+
+
+
+in environment variables,
+	already there is a variable called "path"
+
+	path has lot of values already present.
+	we need to append one more path into that variable
+
+
+add this C:\Program Files\Java\jdk1.8.0_281\bin
+to the path environment variable
+
+by adding this path to the path variable, we have permanently set path
+
+open a new cmd prompt
+	and type javac and enter
+we see that it is recognised
+
+-------------------------------
+Lets write our first java program in notepad
+1) Open notepad
+2) Every java program has atleast 1 class
+	public class MyFirstJavaProgram					//a java class starts in captial letter
+	{
+		public static void main(String []args)
+		{
+			System.out.print("hello world");
+		}
+	}
+
+
+
+javac MyFirstJavaProgram.java
+
+java MyFirstJavaProgram
+
+
+DOS commands
+	CD folder name				is used to change directory to specified folder
+	d:					to change to d: drive
+	CD..					TO move to parent directory
+	MKDIR					Make new directory
+	rmdir					remove directory
+	DIR					display all the content of a directory	
+
+
+
+C:\Program Files\Java\jdk1.8.0_281\bin
+	javac
+	java
+all these are found in the above location
+
+	javac		and it is not recognised because, the location of javac.exe is not found
+to help that we specify the path in environment variables
+
+javac the command is looked in the C:\Program Files\Java\jdk1.8.0_281\bin 			path
+
+
+Eclipse/ STS/ IntelliJ
+
+
+Choose the workspace
+	this is the location where your programs will be stored
+
+
+Eclipse creates a project folder within your workspace 
+	src folder that contains source code	.java files
+	bin folder that contains byte code	.class files
+
+In eclipse, we do not need to compile the program. It is automatically done when we save
+	when we type itself, it will show compilation errors. underline
+
+
+we can create classes inside a java project
+
+Data types in java:
+	primitive data types
+		fundamental data types in a language. All other types are created using the primitive data types
+		data type means it is primitive type only
+		
+	in javascript we created variables
+		var x=20;		//here x is a variable		20 is the value
+					//but we did not specify the data type
+
+	in java
+		int x=20;		//here int is the data type of variable
+
+	what are the data types available in java?		There are 8 primitive data types present in java
+-------------------------------------------------------
+	boolean			1 bit
+
+	byte			8 bit		1 byte		-128 to 127
+	short			16 bit		2 bytes		-32768 to 32767
+	int			32 bit		4 bytes
+	long			64 bit		8 bytes
+
+	float			32 bit		4 bytes
+	double			64 bit		8 bytes 
+
+	char			16 bit		2 bytes
+----------------------------------------------------------
+
+The above are the only primitive data types in java language. (8)
+
+Integer family
+	byte, short, int, long
+
+floating point numbers		ex: 	5.5
+	float, double
+
+character
+	char			ex:	x='a';
+
+boolean
+	boolean			ex:	x=true;
+
+
+what is the range of values accepted in a variable of specific type?
+	byte age=20;			//correct
+	byte age=128;			//not accepted		why?		because the range of byte is
+			-128 to 127	only
+
+what is so significant between these values?
+	byte is 1 byte size. 	means 8 bit
+	
+	lowest value in 8 bit is		0000 0000		represent a 0
+	highest value in 8 bit is 		1111 1111		255
+
+totally 256 possible values
+	in order to allow positive and negative values, it is divided into 
+	-128 to 127			why 1 less than 128?		0 takes that position
+
+	why 256?	2 power 8
+	then 2 power 16?
+	65536				0 to 65535
+but /2
+	-32768 to 32767					(short)
+
+	2 power 32
+
+	-2,14,74,83,648 to 2,14,74,83,647		(int)
+
+-92,23,37,20,36,85,47,75,808	to	92,23,37,20,36,85,47,75,807
+-9223372036854775808		to	9223372036854775807				(long)
+
+
+All primitive data type variables are called as value types.
+Other type variables are called as reference types.
+
+What is meant by value type.
+
+int x=20;			//value 20 is placed in x
+
+what is x? x is a name of memory location. Imagine this variable like one of the locker in a locker room.
+
+x is the key for a locker
+
+if you open the locker, what you see? 
+	you see a value called (20)
+then x is a value type variable.
+
+
+
+
+String str="hello";			we cannot keep all these characters in one locker. We hire a family room and keep the "hello" in that room. The room key is kept in the locker.
+primitives are simple to keep the value itself in locker. but ref types are so big that they cannot fit in locker. So they are kept in a room and the room key is kept in the locker.
+	str is the key for a locker
+	if we open the locker, we do not see "hello" present in the locker.
+
+	rather, we see further another key to a location where "hello" is present. 
+	
+	Hence, String is a reference type
+
+Except those 8 primitive types, all other types in java are reference types
+
+
+lockers are called as STACK
+separate room are called as HEAP
+
+int x=20;			x is in stack
+String str="hello"		"hello" is in heap. its ref is stored in str, "str" is in stack
+
+Date dob=new Date();
+the above line can be split into 2 lines for better understanding
+
+Date dob;			//only stack is allocated. open the "dob" locker, there is no key for heap is found
+dob=new Date();			//now only "heap" memory is allocated using "new" operator and heap ref is stored in 					stack "dob"
+
+objects are created in heap memory. Their references are stored in stack
+
+
+sometimes, we create only
+	new Date();			//here, heap memory is allocated but its ref is not stored in stack
+
+why it is called as Stack?
+
+
+any variable declared inside as function are called as stack variables
+
+class Employee
+{
+	int employeeId;			//this is not stored in stack (because, it is not declared inside a fn)
+}
+
+
+class Main
+{
+	public static void main()	
+	{
+		int x=20;			// x is stored in stack	
+		Employee rama=new Employee();		//rama is stack. but "new Employee()" is in heap
+					//sir, rama is not primitive how rama is in stack????
+					//rama contains employeeId it is primitive but stored in heap
+		new Employee() is the object
+		objects are in heap
+		their reference is stored in stack (rama)	rama is declared inside a fn. so it is in stack.
+		
+	}
+}
+
+why it is called as stack?
+	when a program starts execution, main method is pushed to "call stack"
+	if main called fn1()	then fn1 is pushed to stakc
+	if fn1() calles fn2()	then fn2 is pushed to stack
+	and so on
+
+	when f2() method is completed its execution, it is poped out of "call stack"
+
+When a function is poped out of "call stack" then definitely the variables declared inside the function are also poped out.
+
+so a variable declared inside a function are called as stack variables
+
+
+in java functions are called as methods
+	
+Identify the operators
+	arithmetic operators
+		+
+		-
+		*
+		/
+		%
+	assignment operators
+		=
+		+=		(a+=2 means a=a+b)		x=100;		100 is assigned to x
+		-=
+		*=
+		/=
+		%=
+	
+
+	logical operators
+		&&		logical and		true/false	 only
+		&		bitwise and		converts into binary and compare each bit. 0 =false 1=true
+		||
+		!
+		^
+	comparison operators
+		==
+		!=
+		>=
+		<=
+		>
+		<
+		
+	ternary operator
+		?:
+	shift operator
+		<<
+		>>			10	is 2			after right shift	01	= 1
+		>>>	includes unsigned digit
+
+	127	+1	=-128		but using >>>	it will not consider the sign
+
+other operators
+	new 
+	instanceof
+
+
+-------------------------------------------------
+String class in java
+	String str1="hello";		//how is it possible?
+		here, 
+			String is a class
+			how we create an object of a class?
+			String str1=new String();		//this is how we create objects
+
+
+		String str1="hello";	//here	"hello" is an object. NOT VALUE
+		String str2="hello";	//here  "hello" is an object
+		
+		// 	str1 and str2 are 2 variables pointing to same reference (memory) (object)
+		
+		System.out.println(str1==str2); 	//what will be the output
+		true is the answer
+
+
+		
+		String str1=new String("hello");	//here	"hello" is an object
+		String str2=new String("hello");	//here  "hello" is an object
+		
+		// 	str1 and str2 are 2 variables pointing to same reference (memory) (object)
+		
+		System.out.println(str1==str2); 	//what will be the output
+		//false because???			== operator compares the values when the operands are value types. 
+		//							== operator compares the references when the opernands are reference types.
+		
+		whenever "new" operator is used, it will create a new memory location only
+
+
+	x==y			if x and y are value types, then == compares their values
+
+	if x and y are reference types, still we want their values to be compared. Then
+	x.equals(y)		compares the values of x and y
+
+
+
+		System.out.println(str1.equals(str2));		//true
+
+
+String is a class
+class String
+{
+	public boolean equals(String arg)
+	{
+		//they have coded such that the this string is compared with arg as values
+	}
+}
+
+
+Why the class name should be same as File Name
+
+
+When there are multiple classes found in 1 file, then only 1 class among them can be public
+Other classes cannot be public.
+
+That public class name and the file name must be same
+
+single quote is used for char data type
+double quote is used for String objects
+
+
+if
+if else
+if else if else
+switch
+while
+do while
+for
+for each
+
+We should learn to get input from the user. User enters inputs in the console.
+
+
+Scanner class belongs to java.util package
+So we need to import the package
+
+Scanner sc=new Scanner(System.in);			//System.in represents keyboard (standard input device)
+
+methods of Scanner:
+next()				//only 1 word
+nextLine()			
+nextInt()
+nextFloat()
+nextLong()
+
+
+next()			returns a String input entered by the user.
+
+suppose user enters
+Rama Krishna	
+	as input.	Only Rama is captured. "Krishna" is not captured because, SPACE, TAB, NEWLINE are delimiters
+	until a delimiter is found, the characters are obtained as input
+
+Exception nextLine() method, all other methods capture the input until SPACE, TAB or NEWLINE character
+
+nextLine() capture all the characters until a NEW LINE char is found
+
+Task:
+	obtain 3 inputs from the user.
+	all inputs are int data type
+	display the largest input number
+
+
+
+TasK
+	accept Currency code from user as input.
+	Display the country corresponding to that code.
+
+	USD		USA
+	INR		India
+	EUR		Europe
+
+	are the possible inputs. If anything other than this is entered by the user, display "Unknown code"
+
+
+
+Scanner sc=new Scanner(System.in);
+		String input=sc.next();
+		String result="";
+		switch(input)
+		{
+		case "INR":
+			result="India";
+			break;
+		case "USD":
+			result="USA";
+			break;
+		case "EUR":
+			result="Europe";
+			break;
+		default:
+			result="Unknown code";
+			break;	
+		}
+		System.out.println(result);
+
+
+
+switch(x)
+{
+	case 'a':
+	case 'e':
+	case 'i':
+	case 'o':
+	case 'u':
+		System.out.println("Vowel");
+		break;
+	default:
+		System.out.println("Not vowel. May be consonant or symbol");
+		break;
+}
+
+
+switch(x)
+{
+	case 5:
+		System.out.println("Hello");
+	case 4:
+		System.out.println("Hello");
+	case 3:
+		System.out.println("Hello");
+	case 2:
+		System.out.println("Hello");
+	case 1:
+		System.out.println("Hello");
+}
+
+	if x =5
+		then "Hello" is printed 5 times
+	there is no "break" but it is advantage here
+
+
+WHILE LOOP:
+-----------
+DO-WHILE LOOP:
+------------
+
+what is the difference between 
+		While		(and)
+		Do While
+
+Do while executes the body of the loop at least once
+While loop executes the body only if the condition is true. 	So it is possible that while loop body may not be executed even a single time also sometimes
+
+but do while execute the body at least once
+
+So situations where the second iteration only needs to be conditionally executed, we use do while
+
+
+for loop
+-------------
+	for(initialization	;	condition	;	re-initialization)
+
+
+
+		for(int i=20;i<25;++i)
+		{
+			System.out.println(i);
+		}
+
+		for(int i=20;i<25;++i)
+			System.out.println(i);
+
+		for(;;)
+		{
+			
+		}
+
+
+
+for-each loop
+---------------
+suitable for arrays, collections
+
+		int arr[]= {4,10,2,22,44,3,4,99,9,7};
+		for(int x:arr)
+			System.out.println(x);
+---------------------------Dice 1--------------
+
+
+Scanner sc=new Scanner(System.in);
+		int a=sc.nextInt();
+		int b=sc.nextInt();
+		if(a<0 || a>6 || b<0 || b>6)
+		{	
+			System.out.println("Invalid Input");
+			System.exit(0); 				//return also is fine to stop main method
+		}
+		//program continues only if inputs are valid
+		int sum=a+b;
+		if(a==b)
+			System.out.printf("The points scored is %d",(2*sum));
+		else
+			System.out.printf("The points scored is %d",sum);
+
+
+------------------------------Dice 2--------------------
+
+Introductory algebra
+
+^ exclusive OR operator returns true only if either is true and NOT both are same
+
+
+
+
+		Scanner sc=new Scanner(System.in);
+		int a=sc.nextInt();
+		int b=sc.nextInt();
+		
+		//-555
+		if(Math.abs(a)<10 || Math.abs(a)>99 || Math.abs(b)<10 || Math.abs(b)>99)
+		{
+			System.out.println("Invalid Input");
+			return;					//System.exit(0)		is also fine
+		}
+		//continue if valid input
+		if(a<0 ^ b<0)
+		{
+			System.out.println("Correct");
+		}
+		else
+			System.out.println("Incorrect");
+
+--------------------------------------------------
+What is an array?
+	Array is a collection of elements in contigeous memory locations
+	Array elements are identified by their index
+
+	if an array size is 10
+	then index starts from 0 to 9
+
+in C language, we create array like
+	int arr[10];			//but this is not allowed in Java
+
+
+
+int arr[]=new int[10];			//this is allowed in Java
+int arr[]= {5,2,3,6,8,3,22,11,10};	//also correct
+
+int arr[];
+arr=new int[10];
+		
+
+Can we change the size of array later?		WE CANNOT CHANGE THE SIZE OF AN ARRAY
+	
+we can create new array only. Old values are lost.
+
+every data type has default value
+
+
+int arr[];
+int []arr;
+
+
+int []arr= {11,90,22,7,8,32,10,56};
+		for(int i=0;i<arr.length;i++)
+		{
+			System.out.println(arr[i]);
+		}
+
+=----------------------------
+multi dimensional array
+------------------------
+int arr[][];			//2 dimension
+int arr[][][];			//3 dimension
+int marks[][][];
+	marks[0][0][0]=90;
+	marks[0][0][1]=89;
+
+
+--------------
+int arr[][]=new int[10][10];			//10 rows 10 columns
+
+int arr[][]=new int[10][];
+		
+		//why second dimension is missing???
+		//imagine a 2 dimension array as an array or arrays
+		arr[0]=new int[10];
+		arr[1]=new int[15];
+		arr[2]=new int[5];
+		arr[4]=new int[100];
+		//here a 2 dimensional array has every row having different size of columns
+		//THIS IS CALLED AS JAGGED ARRAY
+
+
+-----------------
+Arrays and for loop
+	we can use for loop to access each element in an array
+		int arr[][]= {
+				{1,2,3,4,5},
+				{100,200,300,400,500},
+				{11,22,33,44,55},
+				{51,52,53,54,55}
+		};
+		for(int i=0;i<4;i++)
+		{
+			for(int j=0;j<5;j++)
+			{
+				System.out.printf("Element at %d:%d is %d\n",i,j, arr[i][j]);
+			}
+		}
+
+---------------------------
+		int arr[][]= {
+				{1,2,3},
+				{100,200,300,400,500},
+				{11,22,33,44,55,66,77,88},
+				{51,52,53,54}
+		};
+		for(int i=0;i<arr.length;i++)
+		{
+			for(int j=0;j<arr[i].length;j++)
+			{
+				System.out.printf("Element at %d:%d is %d\n",i,j, arr[i][j]);
+			}
+		}
+
+-----------
+int n=sc.nextInt();
+int arr[]=new int[n];
+
+
+
+to find largest value in an array
+
+		int arr[]= {22,6,1088,911,34,2220,100,4};
+		//find max value in this array
+		int largest=0;
+		for(int i=0;i<arr.length;i++)
+		{
+			if(arr[i]>largest)
+				largest=arr[i];		//no else part
+		//	System.out.println(arr[i]);
+		}
+		System.out.println(largest);
+============================
+
+Largest Running sequence:		(Run Length IV)
+import java.util.Scanner;
+
+
+public class RunLength4 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int arr[]=new int[n];
+		for(int i=0;i<n;i++)
+		{
+			arr[i]=sc.nextInt();
+		}
+		//got n inputs and stored in the array .....
+		
+		//walk through the array once
+		int evenCount=0;
+		int largestRunSequence=0;
+		int startIndex=-1;
+		int largestStartIndex=-1;
+		for(int i=0;i<n;i++)
+		{
+			if(arr[i]%2==0)		//check even number
+			{
+				//increase even count
+				evenCount++;
+				if(evenCount==1)
+					startIndex=i;
+				if(evenCount>largestRunSequence)
+				{
+					largestRunSequence=evenCount;
+					largestStartIndex=startIndex;
+				}
+			}
+			else
+			{
+				//means, odd number  is found
+				evenCount=0;
+			}
+//			System.out.println("Even count is:"+evenCount);
+//			System.out.println("Largest run seq:"+largestRunSequence);
+//			System.out.println("start index:"+startIndex+" and largest index is "+largestStartIndex);
+			
+		}
+		System.out.println(largestRunSequence);
+		System.out.println(largestStartIndex);
+	}
+
+}
+
+
+
